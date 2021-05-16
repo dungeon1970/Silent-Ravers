@@ -1,5 +1,7 @@
 window.onload=function(){
 
+    loadHome('main', 'home.html');
+
     const showMenuToggle = document.getElementsByClassName('toggle-button')[0];
     const navbarLinks = document.getElementById('navbar-links');
     const backToTop = document.getElementById('back-top');
@@ -20,6 +22,8 @@ window.onload=function(){
    
     
     homePage.addEventListener('click', () => {
+        lastItem.classList.remove('menu-item-click');
+        navbarLinks.classList.remove('active')
         loadHome('main', 'home.html');
     })
 
