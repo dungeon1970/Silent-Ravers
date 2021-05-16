@@ -20,14 +20,14 @@ window.onload=function(){
    
     
     homePage.addEventListener('click', () => {
-        window.location = "index.html";
+        loadHome('main', 'home.html');
     })
 
 
     menuItem.forEach((element, index) => {
         element.addEventListener("click", () => {
             let page = element.id + ".html";
-            loadHome(page);
+            loadHome('main', page);
             lastItem.classList.remove('menu-item-click');
             lastItem = element;
             element.classList.add('menu-item-click');
@@ -48,6 +48,7 @@ window.onload=function(){
         else {
          backToTop.style.display = "none";
         }
+        navbarLinks.classList.remove('active')
      }
 
 
@@ -56,9 +57,8 @@ window.onload=function(){
         return await (await fetch(url)).text();
     }
     
-    // this is your `load_home() function`
-    async function loadHome(page) {
-        const contentDiv = document.getElementById("main");
+    async function loadHome(id, page) {
+        const contentDiv = document.getElementById(id);
         contentDiv.innerHTML = await fetchHtmlAsText(page);
     }
 
