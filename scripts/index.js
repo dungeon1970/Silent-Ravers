@@ -29,7 +29,6 @@ window.onload=function(){
    
     function toggleNav() {
         navbarLinks.classList.toggle('active')
-            lastItem.classList.remove('menu-item-click');
         
     }
 
