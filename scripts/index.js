@@ -39,7 +39,6 @@ window.onload=function(){
         else {
          backToTop.style.display = "none";
         }
-        lastItem.classList.remove('menu-item-click');
      }
 
 
