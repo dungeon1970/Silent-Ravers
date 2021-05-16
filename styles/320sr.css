@@ -1,0 +1,11 @@
+@media screen and (max-width: 480px) {
+
+  .navbar img{
+    height: 100%;
+  }
+  .navbar-links ul {
+    margin-top: 1rem;
+  }
+  
+}
+
