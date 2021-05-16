@@ -1,9 +1,11 @@
 window.onload=function(){
 
-    const showMenuToggle = document.getElementsByClassName('toggle-button')[0]
+    const showMenuToggle = document.getElementsByClassName('toggle-button')[0];
     const navbarLinks = document.getElementById('navbar-links');
     const backToTop = document.getElementById('back-top');
     const menuItem = [].slice.call(document.getElementsByClassName("menu-item"));
+    const homePage = document.getElementById('home');
+
     let lastItem = menuItem[0];
 
 
@@ -17,8 +19,15 @@ window.onload=function(){
     })
    
     
+    homePage.addEventListener('click', () => {
+        window.location = "index.html";
+    })
+
+
     menuItem.forEach((element, index) => {
         element.addEventListener("click", () => {
+            let page = element.id + ".html";
+            loadHome(page);
             lastItem.classList.remove('menu-item-click');
             lastItem = element;
             element.classList.add('menu-item-click');
@@ -42,8 +51,22 @@ window.onload=function(){
      }
 
 
+
+     async function fetchHtmlAsText(url) {
+        return await (await fetch(url)).text();
+    }
+    
+    // this is your `load_home() function`
+    async function loadHome(page) {
+        const contentDiv = document.getElementById("main");
+        contentDiv.innerHTML = await fetchHtmlAsText(page);
+    }
+
+
+
+
+
+
+
+
 }//end
-
-
-  
-
